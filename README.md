@@ -1,6 +1,6 @@
-# Vaibhav Gauraha - Premium 3D Portfolio
+# Vaibhav Gauraha - Portfolio
 
-A high-end, Awwwards-caliber digital portfolio built to showcase professional experience, projects, and skills as a Senior Programmer & UI/UX Developer. 
+A digital portfolio built to showcase professional experience, projects, and skills as a Senior Programmer & UI/UX Developer. 
 
 This portfolio leverages modern web technologies to deliver a performant, interactive 3D experience with seamless animations, parallax backgrounds, and refined micro-interactions.
 
