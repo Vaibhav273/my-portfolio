@@ -1,0 +1,175 @@
+.sticky-projects-section {
+    position: relative;
+    padding: 10vw 5%;
+    background: var(--bg-color);
+    z-index: 5;
+}
+
+.sticky-projects-header {
+    text-align: center;
+    margin-bottom: 8vw;
+}
+
+.sticky-projects-header h2 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin: 0;
+    background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.4) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* The Sticky Stack Container */
+.projects-stack-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Space before cards overlap */
+}
+
+.sticky-project-card {
+    position: sticky;
+    top: 15vh; /* Stops here, allowing the next card to overlap */
+    height: 70vh; /* Fixed height for consistent stacking */
+    min-height: 500px;
+    background: rgba(3, 0, 20, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 32px;
+    overflow: hidden;
+    display: flex;
+    text-decoration: none;
+    color: var(--text-color);
+    box-shadow: 0 -20px 40px rgba(0,0,0,0.8);
+    transform-origin: top center;
+    will-change: transform;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.sticky-project-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.02), transparent);
+    pointer-events: none;
+}
+
+/* Split Layout */
+.project-info-side {
+    flex: 1;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid rgba(255,255,255,0.05);
+}
+
+.project-visual-side {
+    flex: 1.2;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-visual-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    filter: grayscale(0.2);
+}
+
+.sticky-project-card:hover .project-visual-side img {
+    transform: scale(1.05);
+    filter: grayscale(0);
+}
+
+/* Info Details */
+.project-category-badge {
+    align-self: flex-start;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--card-color, var(--accent-primary));
+    background: rgba(255,255,255,0.03);
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.project-title-group h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 1rem 0;
+    line-height: 1;
+}
+
+.project-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    opacity: 0.7;
+    margin: 0;
+    max-width: 90%;
+}
+
+.project-link-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-color);
+    margin-top: 2rem;
+    transition: color 0.3s ease;
+}
+
+.sticky-project-card:hover .project-link-cta {
+    color: var(--card-color, var(--accent-primary));
+}
+
+@media (max-width: 900px) {
+    .sticky-project-card {
+        flex-direction: column;
+        height: auto;
+        min-height: auto;
+    }
+    .project-info-side {
+        padding: 2.5rem;
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .project-visual-side {
+        height: 300px;
+    }
+}
+
+/* Trailing Cursor Icon */
+.project-tracker-icon {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 100;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    scale: 0;
+}
+
+.tracker-circle {
+    width: 70px;
+    height: 70px;
+    background: var(--text-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    color: var(--bg-color);
+}

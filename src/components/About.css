@@ -1,0 +1,130 @@
+.brutal-about-section {
+    position: relative;
+    padding: 10vw 4vw;
+    background: var(--bg-color);
+    z-index: 5;
+    /* Removes the generic 5rem margin-bottom that caused blank space */
+}
+
+.brutal-about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8vw;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    align-items: center;
+}
+
+/* Typography Reveal */
+.brutal-about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.brutal-about-text {
+    font-size: clamp(1.5rem, 3.5vw, 3rem);
+    line-height: 1.1;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.reveal-line-wrapper {
+    overflow: hidden;
+    padding-bottom: 0.2em; /* prevent descender clipping */
+    margin-bottom: -0.2em;
+}
+
+.reveal-line {
+    display: block;
+    will-change: transform, opacity;
+    transform-origin: left bottom;
+}
+
+.accent-text {
+    color: var(--accent-primary);
+}
+
+/* Brutalist Stats */
+.brutal-stats-grid {
+    display: flex;
+    gap: 4vw;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 2rem;
+}
+
+.brutal-stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.brutal-stat h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 800;
+    line-height: 1;
+    margin: 0;
+    letter-spacing: -0.05em;
+    color: var(--text-color);
+}
+
+.brutal-stat span {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent-primary);
+    margin-top: 0.5rem;
+}
+
+/* Floating Image */
+.brutal-about-visual {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brutal-image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    background: #111;
+}
+
+.brutal-floating-image {
+    width: 100%;
+    height: 130%; /* Extra height for parallax */
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.2);
+    transition: filter 0.5s ease;
+    will-change: transform;
+}
+
+.brutal-image-wrapper:hover .brutal-floating-image {
+    filter: grayscale(0) contrast(1);
+}
+
+.brutal-image-caption {
+    position: absolute;
+    bottom: -1.5rem;
+    right: 0;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--text-color);
+    opacity: 0.4;
+}
+
+@media (max-width: 900px) {
+    .brutal-about-container {
+        grid-template-columns: 1fr;
+    }
+    .brutal-about-visual {
+        margin-top: 4rem;
+    }
+}

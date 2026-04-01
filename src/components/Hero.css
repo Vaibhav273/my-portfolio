@@ -1,0 +1,214 @@
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 15vh 4vw 8vw 4vw; /* Added massive top padding to clear header and create breathing room */
+  overflow: hidden;
+  background: var(--bg-color);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Massive Typography */
+.hero-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 6vw;
+}
+
+.hero-title-mask {
+  overflow: hidden;
+  line-height: 0.85; /* Extremely tight leading */
+  padding-bottom: 2vw; /* Prevent clipping descenders */
+  margin-bottom: -2vw;
+}
+
+.accent-mask {
+  margin-left: 10vw;
+}
+
+.hero-title-mask-inner {
+  font-family: var(--font-heading);
+  font-size: 14vw;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+  will-change: transform;
+  transform-origin: left bottom;
+  white-space: nowrap;
+}
+
+.hero-title-mask-inner.accent {
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dot {
+  color: var(--accent-primary);
+  -webkit-text-fill-color: var(--accent-primary);
+}
+
+/* Brutalist Grid Meta */
+.hero-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4vw;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+}
+
+.brutal-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.brutal-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  color: var(--accent-primary);
+  opacity: 0.8;
+}
+
+.brutal-value {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* Massive CTA Button */
+.brutal-cta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  justify-self: end;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.cta-circle {
+  width: 80px;
+  height: 80px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  background: transparent;
+}
+
+.brutal-cta:hover .cta-circle {
+  background: var(--text-color);
+  color: var(--bg-color);
+  transform: scale(1.1);
+  border-color: transparent;
+}
+
+.cta-text {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 4px;
+  transition: border-color 0.3s ease;
+}
+
+.brutal-cta:hover .cta-text {
+  border-color: var(--accent-primary);
+}
+
+@media (max-width: 900px) {
+  .hero-meta-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .brutal-cta {
+    justify-self: start;
+    margin-top: 1rem;
+  }
+  .hero-title-mask-inner {
+    font-size: 18vw;
+  }
+  .accent-mask {
+    margin-left: 0;
+  }
+}
+
+/* Scroll Indicator */
+.hero-scroll-indicator {
+  position: absolute;
+  top: 50vh;
+  right: 4vw;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  z-index: 10;
+}
+
+.hero-scroll-indicator span {
+  font-size: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  opacity: 0.3;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.scroll-line-container {
+  width: 1px;
+  height: 100px;
+  background: rgba(255,255,255,0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-line-moving {
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to bottom, transparent, var(--accent-primary), transparent);
+  position: absolute;
+  top: -50%;
+  animation: brutalScroll 2s cubic-bezier(0.8, 0, 0.2, 1) infinite;
+}
+
+@keyframes brutalScroll {
+  0% { top: -50%; }
+  100% { top: 150%; }
+}
+
+/* Ambient Glow */
+.hero-ambient-glow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80vw;
+  height: 80vw;
+  background: radial-gradient(circle, rgba(0, 242, 255, 0.05) 0%, transparent 60%);
+  filter: blur(80px);
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+  transform: translate(20%, -30%);
+}

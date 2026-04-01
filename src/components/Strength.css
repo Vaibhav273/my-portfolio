@@ -1,0 +1,122 @@
+/* Pure Typographic Logo Grid for Technical Mastery */
+.typographic-strength-section {
+    position: relative;
+    padding: 10vw 0;
+    width: 100%;
+    background: var(--bg-color);
+    z-index: 5;
+    overflow: hidden;
+}
+
+.typographic-strength-header {
+    padding: 0 5%;
+    margin-bottom: 6vw;
+    text-align: center;
+}
+
+.typographic-strength-header h2 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin: 0;
+    background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.4) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.strength-subtitle {
+    font-size: 1rem;
+    letter-spacing: 0.3em;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    margin-top: 1rem;
+    display: block;
+}
+
+/* Monumental Text Logos Grid */
+.text-logos-masonry {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem 4rem;
+    padding: 0 5%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.text-logo {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    display: inline-block;
+}
+
+/* On hover, fill the text with vibrant color and lift */
+.text-logo:hover {
+    -webkit-text-stroke: 0px transparent;
+    color: var(--logo-color, var(--text-color));
+    transform: translateY(-10px) scale(1.05);
+    text-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    z-index: 10;
+}
+
+.typographic-strength-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70vw;
+    height: 70vw;
+    background: radial-gradient(circle, rgba(0, 242, 255, 0.05) 0%, transparent 60%);
+    filter: blur(100px);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Cursor-Tracking Logo Reveal Container */
+.tracking-logo-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 140px;
+    height: 140px;
+    pointer-events: none;
+    z-index: 999;
+    background: rgba(10, 10, 15, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+    transform: translate(-50%, -50%) scale(0) rotate(-15deg); /* Centered on cursor, scaled down initially */
+    transform-origin: center;
+    opacity: 0;
+}
+
+.tracking-logo-container img {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+}
+
+@media (max-width: 900px) {
+    .text-logos-masonry {
+        gap: 1rem 2rem;
+    }
+    .tracking-logo-container {
+        display: none !important; /* Hide sophisticated tracking effects on mobile */
+    }
+}
